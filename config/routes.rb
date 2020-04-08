@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  root to: 'sessions#welcome'
+
+  resources :users, only: [:new, :create]
+  get 'login', to: 'sessions#new'
+  post 'login', to: 'sessions#create'
+  get 'logout', to: 'sessions#destroy'
+  get 'authorized', to: 'sessions#page_requires_login'
+
   resources :trainers do 
     resources :pokemons do 
       resources :pokemon_moves do
