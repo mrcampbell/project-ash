@@ -10,12 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_08_163420) do
+ActiveRecord::Schema.define(version: 2020_04_08_224640) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "pokemon_moves", force: :cascade do |t|
     t.integer "move_id"
     t.integer "index"
-    t.integer "pokemon_id", null: false
+    t.bigint "pokemon_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["pokemon_id"], name: "index_pokemon_moves_on_pokemon_id"
@@ -23,7 +26,7 @@ ActiveRecord::Schema.define(version: 2020_04_08_163420) do
 
   create_table "pokemons", force: :cascade do |t|
     t.integer "breed_id"
-    t.integer "trainer_id", null: false
+    t.bigint "trainer_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["trainer_id"], name: "index_pokemons_on_trainer_id"
@@ -33,6 +36,8 @@ ActiveRecord::Schema.define(version: 2020_04_08_163420) do
     t.string "username"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_trainers_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -44,4 +49,5 @@ ActiveRecord::Schema.define(version: 2020_04_08_163420) do
 
   add_foreign_key "pokemon_moves", "pokemons"
   add_foreign_key "pokemons", "trainers"
+  add_foreign_key "trainers", "users"
 end

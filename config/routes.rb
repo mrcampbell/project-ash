@@ -7,10 +7,8 @@ Rails.application.routes.draw do
   get 'logout', to: 'sessions#destroy'
   get 'authorized', to: 'sessions#page_requires_login'
 
-  resources :trainers do 
-    resources :pokemons do 
-      resources :pokemon_moves do
-      end
+  resources :pokemons do 
+    resources :pokemon_moves do
     end
   end
 

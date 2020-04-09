@@ -11,6 +11,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     @user.save
     session[:user_id] = @user.id
+    trainer = Trainer.create(username: @user.username, user_id: @user.id)
     redirect_to '/'
  end
 
