@@ -1,7 +1,8 @@
   <div class="row">
     <h1>Home Page</h1>
-    <%= @trainer.to_json %>
-    <br><%= @trainer.pokemons.to_json %>
-    <br><%= @trainer.pokemons[0].pokemon_moves.to_json %>
+    <br><h6>Trainer</h6><%= @trainer.to_json %>
+    <br><h6>Pokemon</h6><%= @trainer.pokemons.to_json %>
+    <br><h6>Moves</h6><%= @trainer.pokemons[0].pokemon_moves.to_json %>
+    <br><h6>Items</h6><%= @trainer.items.to_json %>
   
   </div>
