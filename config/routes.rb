@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'sessions#welcome'
+  root to: 'trainers#index'
 
   resources :users, only: [:new, :create]
   get 'login', to: 'sessions#new'

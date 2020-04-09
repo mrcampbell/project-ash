@@ -7,7 +7,11 @@ class ApplicationController < ActionController::Base
   helper_method :logged_in?
 
   def current_user    
-    User.find_by(id: session[:user_id])  
+    User.find_by(id: session[:user_id])
+  end
+
+  def current_trainer    
+    Trainer.where(users_id: session[:user_id]).first
   end
   
   def logged_in?    
@@ -15,6 +19,6 @@ class ApplicationController < ActionController::Base
   end
 
   def authorized
-    redirect_to '/' unless logged_in?
+    redirect_to '/login' unless logged_in?
   end
 end

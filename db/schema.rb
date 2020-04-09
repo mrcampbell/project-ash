@@ -36,8 +36,8 @@ ActiveRecord::Schema.define(version: 2020_04_08_224640) do
     t.string "username"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "user_id"
-    t.index ["user_id"], name: "index_trainers_on_user_id"
+    t.bigint "users_id"
+    t.index ["users_id"], name: "index_trainers_on_users_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -49,5 +49,5 @@ ActiveRecord::Schema.define(version: 2020_04_08_224640) do
 
   add_foreign_key "pokemon_moves", "pokemons"
   add_foreign_key "pokemons", "trainers"
-  add_foreign_key "trainers", "users"
+  add_foreign_key "trainers", "users", column: "users_id"
 end

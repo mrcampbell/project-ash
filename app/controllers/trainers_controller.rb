@@ -1,6 +1,7 @@
 class TrainersController < ApplicationController
   def index
-    trainers = Trainer.all
-    render json: trainers, include: {pokemons: {include: :pokemon_moves}}
+    puts current_user.inspect
+    puts current_trainer.inspect
+    @trainer = Trainer.includes(:pokemons).find(current_trainer.id)
   end
 end
