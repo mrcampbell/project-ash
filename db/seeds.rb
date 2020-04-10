@@ -20,7 +20,11 @@ tAsh = Trainer.create!(username: "Ash", users_id: uAsh.id)
 charmander = Pokemon.create!(breed_id: 7, trainer_id: tAsh.id)
 chScratch = PokemonMove.create!(move_id: 1, index: 0, pokemon_id: charmander.id)
 
-Item.create!(item_type_id: 1, trainer_id: tAsh.id)
+Item.create!(item_type_id: :potion, trainer_id: tAsh.id, used_at: DateTime.now())
+Item.create!(item_type_id: :potion, trainer_id: tAsh.id)
+Item.create!(item_type_id: :potion, trainer_id: tAsh.id)
+Item.create!(item_type_id: :antidote, trainer_id: tAsh.id)
+Item.create!(item_type_id: :nugget, trainer_id: tAsh.id)
 
 
 # charmander = Pokemon.create(breed_id: 4, trainer_id: ash.id)
