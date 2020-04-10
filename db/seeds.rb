@@ -17,6 +17,8 @@ uAsh = User.create!(username: "Ash", password_digest: Password.create("sure"))
 tAsh = Trainer.create!(username: "Ash", users_id: uAsh.id)
 
 
+charmander = Pokemon.create!(breed_id: 1, trainer_id: tAsh.id, in_team?: true)
+charmander = Pokemon.create!(breed_id: 4, trainer_id: tAsh.id, in_team?: true)
 charmander = Pokemon.create!(breed_id: 7, trainer_id: tAsh.id)
 chScratch = PokemonMove.create!(move_id: 1, index: 0, pokemon_id: charmander.id)
 
