@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   get '/pokemon/box', to: 'pokemons#box'
   get '/pokemon/team', to: 'pokemons#team'
   get '/bag', to: 'items#bag'
+  get '/store', to: 'store#index'
+  post '/store/purchase', to: 'store#purchase'
 
 
   resources :pokemons do 

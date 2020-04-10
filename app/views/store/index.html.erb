@@ -1,0 +1,7 @@
+
+<%= form_with(url: "/store/purchase", method: "post") do %>
+<h3> Buy Potion!</h3>
+<%= hidden_field_tag :item_type_id, :potion%>
+<%= hidden_field_tag :price, 300%>
+  <%= submit_tag "Buy"  %>
+<% end %>
