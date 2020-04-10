@@ -1,8 +1,8 @@
   <div class="row">
     <h1>Home Page</h1>
-    <br><h6>Trainer</h6><%= @trainer.to_json %>
-    <br><h6>Pokemon</h6><%= @trainer.pokemons.to_json %>
-    <br><h6>Moves</h6><%= @trainer.pokemons[0].pokemon_moves.to_json %>
-    <br><h6>Items</h6><%= @trainer.items.to_json %>
+    <br><h6>Username</h6><%= @trainer.username %>
+    <br><h6>Money</h6><%= @trainer.money %>
+    <br><h6>Pokemon Count</h6><%= @trainer.pokemons.count %>
+    <br><h6>Player Since</h6><%= @trainer.created_at.strftime("%B %d, %Y") %>
   
   </div>

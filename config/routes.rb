@@ -6,6 +6,10 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create'
   get 'logout', to: 'sessions#destroy'
   get 'authorized', to: 'sessions#page_requires_login'
+  get '/pokemon/box', to: 'pokemons#box'
+  get '/pokemon/team', to: 'pokemons#team'
+  get '/bag', to: 'items#bag'
+
 
   resources :pokemons do 
     resources :pokemon_moves do

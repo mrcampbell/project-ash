@@ -14,12 +14,10 @@
   <body>
     <nav>
     <div class="nav-wrapper">
-      <a href="#!" class="brand-logo">Logo</a>
-      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-      <ul class="right hide-on-med-and-down">
-        <li><a href="sass.html">Sass</a></li>
-        <li><a href="badges.html">Components</a></li>
-        <li><a href="collapsible.html">Javascript</a></li>
+      <ul class="right">
+        <li><a href="/pokemon/team">Team</a></li>
+        <li><a href="/bag">Bag</a></li>
+        <li><a href="/pokemon/box">Pokemon Box</a></li>
         <% if logged_in? %>
           <li>[<%= current_user.username %>]</li>
           <li><%= button_to "Log Out", '/logout', method: :get%></li>

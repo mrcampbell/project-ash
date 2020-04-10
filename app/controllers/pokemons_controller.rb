@@ -1,5 +1,8 @@
 class PokemonsController < ApplicationController
-  def index
+  def box
     @pokemons = Pokemon.all    
+  end
+
+  def team
   end
 end
