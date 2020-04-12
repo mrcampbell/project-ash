@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get '/bag', to: 'items#bag'
   get '/store', to: 'store#index'
   post '/store/purchase', to: 'store#purchase'
+  post '/store/sell', to: 'store#sell' # todo: better routing?
 
 
   resources :pokemons do 

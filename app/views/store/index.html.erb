@@ -2,15 +2,20 @@
 <h3>Current Money: <%= @current_money %></h3>
 <table>
   <% @items_for_sale.each do |id, item| %>
-    <%= form_with(url: "/store/purchase", method: "post", remote: true) do |form| %>
       <tr>
         <td><%= item[:type] %></td>
-        <td><%= item[:buy_price] %></td>
+        <td> Buy for <%= item[:buy_price] %></td>
+        <td> Sell for <%= item[:sell_price] %></td>
         <!-- todo: not this -->
         <td># in Bag <%= @items_in_bag[item[:type].to_s] %></td>
-        <td><%= form.submit "Buy"  %></td>
-      </tr>
-      <%= hidden_field_tag :purchase_id, id %>
-    <% end %>
+        <%= form_with(url: "/store/purchase", method: "post", remote: true) do |form| %>
+          <td><%= form.submit "Buy"  %></td>
+          <%= hidden_field_tag :purchase_id, id %>
+        <% end %>
+         <%= form_with(url: "/store/sell", method: "post", remote: true) do |form| %>
+        <td><%= form.submit "Sell"  %></td>
+        <%= hidden_field_tag :purchase_id, id %>
+      <% end %>
+    </tr>
   <% end %>
 </table>
