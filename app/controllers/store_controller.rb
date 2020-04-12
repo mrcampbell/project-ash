@@ -34,10 +34,8 @@ class StoreController < ApplicationController
     item_order = helpers.items_for_sale[params[:purchase_id]] 
 
     sold_item_list = Item.where(:item_type_id => item_order[:type], :trainer_id => current_trainer.id, :used_at => nil, :sold_at => nil).limit(1)
-    puts "GOT ITEM"
 
     if sold_item_list.empty? 
-      "you ain't got none left!"
       redirect_to store_path(current_trainer) and return
     end
 
