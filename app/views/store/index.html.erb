@@ -7,7 +7,7 @@
         <td> Buy for <%= item[:buy_price] %></td>
         <td> Sell for <%= item[:sell_price] %></td>
         <!-- todo: not this -->
-        <td># in Bag <%= @items_in_bag[item[:type].to_s] %></td>
+        <td># in Bag <%= @items_in_bag[item[:type].to_s] || 0 %></td>
         <%= form_with(url: "/store/purchase", method: "post", remote: true) do |form| %>
           <td><%= form.submit "Buy"  %></td>
           <%= hidden_field_tag :purchase_id, id %>

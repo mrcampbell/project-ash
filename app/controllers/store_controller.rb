@@ -12,7 +12,7 @@ class StoreController < ApplicationController
     puts 'PURCHASE'
     
     # todo: error check
-    item_order = helpers.items_for_sale[params[:purchase_id].to_sym] 
+    item_order = helpers.items_for_sale[params[:purchase_id]]
 
     puts item_order
     purchased_item = Item.new(item_type_id: item_order[:type], trainer_id: current_trainer.id)
@@ -31,7 +31,7 @@ class StoreController < ApplicationController
     puts 'SELL'
     
     # todo: error check
-    item_order = helpers.items_for_sale[params[:purchase_id].to_sym] 
+    item_order = helpers.items_for_sale[params[:purchase_id]] 
 
     sold_item_list = Item.where(:item_type_id => item_order[:type], :trainer_id => current_trainer.id, :used_at => nil, :sold_at => nil).limit(1)
     puts "GOT ITEM"
