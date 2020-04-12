@@ -5,6 +5,7 @@ class StoreController < ApplicationController
   def index
     @items_for_sale = helpers.items_for_sale
     @current_money = current_trainer.money
+    @items_in_bag = Item.where(:trainer_id => current_trainer.id, :used_at => nil).group(:item_type_id).count
   end
 
   def purchase

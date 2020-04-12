@@ -1,4 +1,4 @@
-<%= @items_for_sale.to_json %>
+<%= @items_in_bag %>
 <h3>Current Money: <%= @current_money %></h3>
 <table>
   <% @items_for_sale.each do |id, item| %>
@@ -6,6 +6,8 @@
       <tr>
         <td><%= item[:type] %></td>
         <td><%= item[:buy_price] %></td>
+        <!-- todo: not this -->
+        <td># in Bag <%= @items_in_bag[item[:type].to_s] %></td>
         <td><%= form.submit "Buy"  %></td>
       </tr>
       <%= hidden_field_tag :purchase_id, id %>
